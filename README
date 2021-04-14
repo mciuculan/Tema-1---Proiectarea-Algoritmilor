@@ -11,6 +11,25 @@ upgrade depaseste suma de bani pe care o avem (B), iesim din iteratie.
 Altfel, cresc numarul de cryptomonede minate, cresc pretul total, si
 pun costul partial pe 0.
 
+Problema 2:
+	Problema se bazeaza pe rezolvarea problemei clasice de dinamica
+a rucsacului, adaugandu-se o condintie, adica o dimensiune in plus a
+matricei.
+	Am creat o clasa care sa reprezinte obiectul Stock. Stock-urile
+se ordoneaza descrescator dupa valoarea pe care o au initial, iar in cazul
+in care sunt 2 valori egale vor fi ordonate dupa costul minim.
+	Incep prin a sorta lista stocks. Creez o matrice in 3 dimensiuni
+in care pe liniile si coloanele 0 - din fiecare dimensiune - pun 0 neputand
+calcula un profit in lipsa unui obiect de studiat. Prima dimensiune reprezinta
+obiectele, a doua costul initial si a 3a pierderea corespunzatoare. Formula
+cu care calculez elementele este:
+
+profit[i][j][k] = Max (profit[i-1][j][k],
+			profit[i-1][j-pretul_curent][k-pierdere] + Profit)
+			
+	In final, calculez maximul matricii care reprezinta de fapt chiar
+profitul maxim cautat.
+
 Problema 3:
 	Aceasta problema am impartit-o in doua subprobleme pentru prefix
 si pentru sufix. In primul rand verific daca nu este deja vale - adica
