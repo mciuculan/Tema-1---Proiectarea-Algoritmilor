@@ -1,0 +1,30 @@
+Problema 1:
+	Problema are o abordare greedy. Am creat un vector de perechi
+de forma <Pi, Ui> pe care ulterior l-am ordonat in functie de puterea
+sa Pi. Am o variabila finalPower in care salvez cate monede pot fi
+minate minim si pe care o voi incrementa de fiecare data cand este
+posibil. De asemenea, am o variabila totalCost in care salvez costul
+pentru toate upgrade-urile. Pentru a nu "pierde" valoarea respectiva,
+iau o variabila auxiliara -cost partial- unde salvez costul pentru
+fiecare upgrade in parte. Daca suma de pana atunci + costul urmatorului
+upgrade depaseste suma de bani pe care o avem (B), iesim din iteratie.
+Altfel, cresc numarul de cryptomonede minate, cresc pretul total, si
+pun costul partial pe 0.
+
+Problema 3:
+	Aceasta problema am impartit-o in doua subprobleme pentru prefix
+si pentru sufix. In primul rand verific daca nu este deja vale - adica
+daca sirul nu este compus din elemente egale sau dintr-un sir descrescator
+urmat de unul crescator. Impartirea o fac de la minimul sirului. In plus,
+nu vreau ca un sir complet descrescator sau unul complet crescator sa fie
+luat in calcul, el putand fi rezolvat separat egaland ultimele 2 (respectiv
+primele 2) elemente.
+	Daca sirul nu se incadreaza in cazurile de mai sus, apelez functiile
+pentru prefix si sufix (diferenta este faptul ca operatiile sunt facute invers).
+In prefix aleg minim local primul element. Daca urmatorul este mai mic decat el,
+minimul se actualizeaza, Altfel, adaug la numarul de ore diferenta dintre element
+si minim si setez numarul pe minimul local. Poate exista cazul cand minimul
+global sa fie la final, respectiv la inceput, ceea ce ar putea cauza imposibilitatea
+crearii unei vai, asa ca am tratat cazul la inceputul functiei, considerand
+elementul anterior egal cu ultimul.
+	Analog, rezolvarea pentru sufix, doar ca plec de la finalul sirului.
