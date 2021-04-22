@@ -47,3 +47,20 @@ global sa fie la final, respectiv la inceput, ceea ce ar putea cauza imposibilit
 crearii unei vai, asa ca am tratat cazul la inceputul functiei, considerand
 elementul anterior egal cu ultimul.
 	Analog, rezolvarea pentru sufix, doar ca plec de la finalul sirului.
+
+Problema 4:
+	Aceasta problema se rezolva cu ajutorul programarii dinamice. Pentru
+inceput, creez o matrice de tip long cu N linii care reprezinta inaltimile
+muntilor, si cu 3 coloane. Am observat ca dintr-un element este suficient sa
+scad maxim 2 unitati pentru a putea satisface conditia de a nu fi egale
+2 creste adiacente. Astfel, coloanele matricei vor reprezenta cu cat este nevoie
+sa decrementez elementul de pe linie, iar casuta min[i][j] o sa fie costul.
+Am initializat prima linie a matricei cu 0, costul aferent si dublul costului.
+Pornesc verificarea de la a doua linie si compar elementul curent decrementat
+corespunzator cu elementul anteriordin care scad pe rand aceleasi valori.
+In cazul in care nu ajung cu o inaltime negativa si prin decrementarea inaltimii
+curente nu ajung la o alta inaltime egala cu cea a elementului anterior,
+calculez minimul local. Dupa ce am verificat toate cazurile, pentru elementul i
+din care scad j unitati, voi avea costul calculat dupa formula:
+		min[i][j] = j * costul_elementului + minim_local;
+	In final, rezutatul o sa fie minimul ultimei linii din matrice.
